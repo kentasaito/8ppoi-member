@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <h1>8ppoi member</h1>
+    <img width="192" height="192" id="avatar">
+    <h1 id="member-name"></h1>
+    <p id="profile"></p>
+    <script type="module">
+      const res = await fetch("./member.json");
+      const member = await res.json();
+      document.getElementById("member-name").textContent = member.memberName;
+      document.getElementById("profile").textContent = member.profile;
+      document.getElementById("avatar").src = `https://avatars.githubusercontent.com/u/${member.memberId}?s=192`;
+    </script>
   </body>
 </html>
